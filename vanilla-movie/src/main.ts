@@ -36,6 +36,13 @@ const pDataService = new PDataService();
   // console.log("buchonSubwayPassengerData", buchonSubwayPassengerData);
   // console.log("buchonSubwayPassengerData", buchonSubwayPassengerData);
   // await console.log("page", data.page);
+  // const corona = await pDataService.getCoronaMediaContentChange({
+  //   params: {
+  //     page: 1,
+  //     perPage: 10,
+  //   },
+  // });
+  // console.log("corona", corona);
 })();
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
