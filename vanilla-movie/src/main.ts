@@ -42,6 +42,15 @@ const pDataService = new PDataService();
   //     perPage: 10,
   //   },
   // });
+  // const nowPlayingTv = await movieListService.getNowPlayingTV({
+  //   params: {
+  //     include_adult: false,
+  //     language: "ko-KR",
+  //     page: 1,
+  //     sort_by: "popularity.desc",
+  //   },
+  // });
+  // console.log("nowPlayingTv", nowPlayingTv);
   // console.log("corona", corona);
 })();
 
