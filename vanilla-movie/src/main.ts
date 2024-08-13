@@ -1,9 +1,35 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import { MovieListService } from "./api/services/tmdb/movieList.service";
+import "./style.css";
+import typescriptLogo from "./typescript.svg";
+import viteLogo from "/vite.svg";
+import { setupCounter } from "./counter.ts";
+import { WeatherService } from "./api/services/weathers/weather.service.ts";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+const movieListService = new MovieListService();
+const weatherService = new WeatherService();
+
+(async () => {
+  const data = await movieListService.getPopularMovies({
+    params: {
+      include_adult: false,
+      include_video: false,
+      language: "ko-KR",
+      page: 1,
+      sort_by: "popularity.desc",
+    },
+  });
+
+  const weatherData = await weatherService.getCurrentWeather({
+    params: {
+      lat: 37.5665,
+      lon: 126.978,
+    },
+  });
+
+  // await console.log("page", data.page);
+})();
+
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="${viteLogo}" class="logo" alt="Vite logo" />
@@ -19,6 +45,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
-`
+`;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
