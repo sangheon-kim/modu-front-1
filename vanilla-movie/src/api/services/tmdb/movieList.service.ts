@@ -1,7 +1,5 @@
-import {
-  getPopularMoviesRequest,
-  getPopularMoviesResponse,
-} from "../../@types/tmdb/movieList.type";
+import { getPopularMoviesRequest, getPopularMoviesResponse } from "../../@types/tmdb/movieList.type";
+import { getNowPlayingTVRequest, getNowPlayingTVResponse } from "../../@types/tmdb/nowPlayingTv.type";
 
 const HOST_URL = "https://api.themoviedb.org";
 
@@ -25,6 +23,26 @@ export class MovieListService {
     });
 
     const data = (await res.json()) as getPopularMoviesResponse;
+
+    return data;
+  }
+
+  /** 현재 상영중인 TV 목록 */
+
+  async getNowPlayingTV(req: getNowPlayingTVRequest) {
+    const url = new URL(`${HOST_URL}/3/discover/tv`);
+
+    for (let [key, value] of Object.entries(req.params)) {
+      url.searchParams.append(key, value.toString());
+    }
+
+    const res = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+      },
+    });
+
+    const data = (await res.json()) as getNowPlayingTVResponse;
 
     return data;
   }
