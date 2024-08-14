@@ -11,14 +11,10 @@ export class FineDustService {
     const url = new URL(`http://apis.data.go.kr/B552584/UlfptcaAlarmInqireSvc/getUlfptcaAlarmInfo`);
 
     for(let [key, value] of Object.entries(req.params)) {
-      url.searchParams.append(key, value.toString());
-    }
+      url.searchParams.append(key, decodeURIComponent(value.toString()) );
+  }
 
-    const res = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${serviceKey}`,
-      },
-    });
+  const res = await fetch(url);
 
     const data = (await res.json()) as getFineDustResponse;
 

@@ -17,11 +17,32 @@ const lectureListService = new LectureListService();
 const reviewListService = new ReviewListService();
 
 (async () => {
+  const reviewListdata = await reviewListService.getReviewList({
+    params: {
+      language : "en-US",
+      page : 1,
+    }
+  })
+  console.log(reviewListdata)
+
+  const fineDustdata = await fineDustService.getFineDustAlarm({
+    params: {
+      serviceKey : "Y2os9TKqA/47aq4DzoTiwip55KRZ7hc7gaHosnRgTP5GRRXwhZ7NVLSYClPeBj7Ui1nZRkGTNeA2bAYvsYmU5w==",
+      returnType : "JSON",
+      numOfRows : 100,
+      pageNo : 1,
+      year : 2020,
+      itemCode : "PM10"
+    }
+  })
+  //console.log(fineDustdata)
+
   const lectureListdata = await lectureListService.getLectureList({
     params: {
       serviceKey : "dF9O57IdEh2CptfVSKijKH8TvxgT%2FFSMnPqdoz259FC0uwxqlqjG89PLvYd%2BdJx3ba5pXAwraFzhN3xFg8erfg%3D%3D"
     }
   })
+  //console.log(lectureListdata)
 
   const geocodingdata = await geocodingService.getGeocoding({
     params: {
@@ -29,6 +50,7 @@ const reviewListService = new ReviewListService();
       limit : 5,
     }
   })
+  //console.log(geocodingdata)
 
   const data = await movieListService.getPopularMovies({
     params: {
