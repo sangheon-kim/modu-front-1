@@ -7,41 +7,41 @@ import { WeatherService } from "./api/services/weathers/weather.service.ts";
 import { PeopleListService } from "./api/services/tmdb/peoplelist.service.ts";
 import { GlobalMapsService } from "./api/services/weathers/globalmaps.service.ts";
 import { SheltersService } from "./api/services/PData/shelters.service.ts";
-
-
+import { PDataService } from "./api/services/PData/index.service.ts";
 const movieListService = new MovieListService();
 const weatherService = new WeatherService();
 const peopleListService = new PeopleListService();
 const globalMapsService = new GlobalMapsService();
 const sheltersService = new SheltersService();
+const pDataService = new PDataService();
 
-(async () => {
-  const data = await movieListService.getPopularMovies({
-    params: {
-      include_adult: false,
-      include_video: false,
-      language: "ko-KR",
-      page: 1,
-      sort_by: "popularity.desc",
-    },
-  });
+// (async () => {
+//   const data = await movieListService.getPopularMovies({
+//     params: {
+//       include_adult: false,
+//       include_video: false,
+//       language: "ko-KR",
+//       page: 1,
+//       sort_by: "popularity.desc",
+//     },
+//   });
  
 
-  const peopleData = await peopleListService.getPeopleList({ 
-    params: {
-      page:1,  
-      start_date:"2020-01-01",
-    },
-  });
+//   const peopleData = await peopleListService.getPeopleList({ 
+//     params: {
+//       page:1,  
+//       start_date:"2020-01-01",
+//     },
+//   });
 
-// console.log(peopleData)
+// // console.log(peopleData)
 
-  const weatherData = await weatherService.getCurrentWeather({
-    params: {
-      lat: 37.5665,
-      lon: 126.978,
-    },
-  });
+//   const weatherData = await weatherService.getCurrentWeather({
+//     params: {
+//       lat: 37.5665,
+//       lon: 126.978,
+//     },
+//   });
   // console.log(weatherData)
 
   // const globalData = await globalMapsService.getGlobalMaps({ 
@@ -50,16 +50,58 @@ const sheltersService = new SheltersService();
   //   },
   // });
 
-  const shelterData = await sheltersService.getEmergencyShelters({ 
-    params: {
-      pageNo: 1,
-      numOfRows: 20,
-      type:"json",
-    },
-  });
+//   const shelterData = await sheltersService.getEmergencyShelters({ 
+//     params: {
+//       pageNo: 1,
+//       numOfRows: 20,
+//       type:"json",
+//     },
+//   });
 // console.log(shelterData)
 
  // await console.log("page", data.page);
+
+  // const data = await movieListService.getPopularMovies({
+  //   params: {
+  //     include_adult: false,
+  //     include_video: false,
+  //     language: "ko-KR",
+  //     page: 1,
+  //     sort_by: "popularity.desc",
+  //   },
+  // });
+  // const weatherData = await weatherService.getCurrentWeather({
+  //   params: {
+  //     lat: 37.5665,
+  //     lon: 126.978,
+  //   },
+  // });
+  // const buchonSubwayPassengerData = await pDataService.getBucheonSubwayPassenger({
+  //   params: {
+  //     page: 1,
+  //     perPage: 10,
+  //     returnType: "json",
+  //   },
+  // });
+  // console.log("buchonSubwayPassengerData", buchonSubwayPassengerData);
+  // console.log("buchonSubwayPassengerData", buchonSubwayPassengerData);
+  // await console.log("page", data.page);
+  // const corona = await pDataService.getCoronaMediaContentChange({
+  //   params: {
+  //     page: 1,
+  //     perPage: 10,
+  //   },
+  // });
+  // const nowPlayingTv = await movieListService.getNowPlayingTV({
+  //   params: {
+  //     include_adult: false,
+  //     language: "ko-KR",
+  //     page: 1,
+  //     sort_by: "popularity.desc",
+  //   },
+  // });
+  // console.log("nowPlayingTv", nowPlayingTv);
+  // console.log("corona", corona);
 
 })();
 
