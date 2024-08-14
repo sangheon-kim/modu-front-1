@@ -4,9 +4,16 @@ import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
 import { WeatherService } from "./api/services/weathers/weather.service.ts";
+import { PeopleListService } from "./api/services/tmdb/peoplelist.service.ts";
+import { GlobalMapsService } from "./api/services/weathers/globalmaps.service.ts";
+import { SheltersService } from "./api/services/PData/shelters.service.ts";
+
 
 const movieListService = new MovieListService();
 const weatherService = new WeatherService();
+const peopleListService = new PeopleListService();
+const globalMapsService = new GlobalMapsService();
+const sheltersService = new SheltersService();
 
 (async () => {
   const data = await movieListService.getPopularMovies({
@@ -18,6 +25,16 @@ const weatherService = new WeatherService();
       sort_by: "popularity.desc",
     },
   });
+ 
+
+  const peopleData = await peopleListService.getPeopleList({ 
+    params: {
+      page:1,  
+      start_date:"2020-01-01",
+    },
+  });
+
+// console.log(peopleData)
 
   const weatherData = await weatherService.getCurrentWeather({
     params: {
@@ -25,9 +42,28 @@ const weatherService = new WeatherService();
       lon: 126.978,
     },
   });
+  // console.log(weatherData)
 
-  // await console.log("page", data.page);
+  // const globalData = await globalMapsService.getGlobalMaps({ 
+  //   params: {
+  //     tm: 1723516800,
+  //   },
+  // });
+
+  const shelterData = await sheltersService.getEmergencyShelters({ 
+    params: {
+      pageNo: 1,
+      numOfRows: 20,
+      type:"json",
+    },
+  });
+// console.log(shelterData)
+
+ // await console.log("page", data.page);
+
 })();
+
+
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
