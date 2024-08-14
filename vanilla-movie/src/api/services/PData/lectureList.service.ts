@@ -1,7 +1,7 @@
 import {
     getLectureListRequest,
     getLectureListResponse,
-} from "../../@types/PData/lectureList.types";
+} from "../../@types/PData/lectureList.type";
 
 
 export class LectureListService {

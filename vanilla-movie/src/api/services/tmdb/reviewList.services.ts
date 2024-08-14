@@ -11,7 +11,7 @@ const TOKEN =
 export class ReviewListService {
     //리뷰 조회
     async getReviewList(req : getReviewListRequest) {
-        const url = new URL(`${HOST_URL}/3/movie/:${movie_id}/reviews`);
+        const url = new URL(`${HOST_URL}/3/movie/${movie_id}/reviews`);
 
         for (let [key, value] of Object.entries(req.params)){
             url.searchParams.append(key, value.toString());
