@@ -4,11 +4,32 @@ import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
 import { WeatherService } from "./api/services/weathers/weather.service.ts";
+import {GeocodingService } from "./api/services/weathers/geocoding.service.ts";
+import {FineDustService} from "./api/services/PData/fineDust.service.ts";
+import {LectureListService} from "./api/services/PData/lectureList.service.ts";
+import {ReviewListService} from "./api/services/tmdb/reviewList.services.ts";
 
 const movieListService = new MovieListService();
 const weatherService = new WeatherService();
+const geocodingService = new GeocodingService();
+const fineDustService = new FineDustService();
+const lectureListService = new LectureListService();
+const reviewListService = new ReviewListService();
 
 (async () => {
+  const lectureListdata = await lectureListService.getLectureList({
+    params: {
+      serviceKey : "dF9O57IdEh2CptfVSKijKH8TvxgT%2FFSMnPqdoz259FC0uwxqlqjG89PLvYd%2BdJx3ba5pXAwraFzhN3xFg8erfg%3D%3D"
+    }
+  })
+
+  const geocodingdata = await geocodingService.getGeocoding({
+    params: {
+      q : "Korea",
+      limit : 5,
+    }
+  })
+
   const data = await movieListService.getPopularMovies({
     params: {
       include_adult: false,
