@@ -4,10 +4,18 @@ import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
 import { WeatherService } from "./api/services/weathers/weather.service.ts";
+import { GeocodingService } from "./api/services/weathers/geocoding.service.ts";
+import { FineDustService } from "./api/services/PData/fineDust.service.ts";
+import { LectureListService } from "./api/services/PData/lectureList.service.ts";
+import { ReviewListService } from "./api/services/tmdb/reviewList.service.ts";
 import { PDataService } from "./api/services/PData/index.service.ts";
 
 const movieListService = new MovieListService();
 const weatherService = new WeatherService();
+const geocodingService = new GeocodingService();
+const fineDustService = new FineDustService();
+const lectureListService = new LectureListService();
+const reviewListService = new ReviewListService();
 const pDataService = new PDataService();
 
 (async () => {
@@ -52,6 +60,55 @@ const pDataService = new PDataService();
   // });
   // console.log("nowPlayingTv", nowPlayingTv);
   // console.log("corona", corona);
+  //   const reviewListdata = await reviewListService.getReviewList({
+  //   params: {
+  //     language: "en-US",
+  //     page: 1,
+  //   },
+  //   path: {
+  //     movie_id: 3,
+  //   },
+  // });
+  // console.log(reviewListdata);
+  // const fineDustdata = await fineDustService.getFineDustAlarm({
+  //   params: {
+  //     serviceKey: "Y2os9TKqA/47aq4DzoTiwip55KRZ7hc7gaHosnRgTP5GRRXwhZ7NVLSYClPeBj7Ui1nZRkGTNeA2bAYvsYmU5w==",
+  //     returnType: "JSON",
+  //     numOfRows: 100,
+  //     pageNo: 1,
+  //     year: 2020,
+  //     itemCode: "PM10",
+  //   },
+  // });
+  // //console.log(fineDustdata)
+  // const lectureListdata = await lectureListService.getLectureList({
+  //   params: {
+  //     serviceKey: "dF9O57IdEh2CptfVSKijKH8TvxgT%2FFSMnPqdoz259FC0uwxqlqjG89PLvYd%2BdJx3ba5pXAwraFzhN3xFg8erfg%3D%3D",
+  //   },
+  // });
+  // //console.log(lectureListdata)
+  // const geocodingdata = await geocodingService.getGeocoding({
+  //   params: {
+  //     q: "Korea",
+  //     limit: 5,
+  //   },
+  // });
+  // //console.log(geocodingdata)
+  // const data = await movieListService.getPopularMovies({
+  //   params: {
+  //     include_adult: false,
+  //     include_video: false,
+  //     language: "ko-KR",
+  //     page: 1,
+  //     sort_by: "popularity.desc",
+  //   },
+  // });
+  // const weatherData = await weatherService.getCurrentWeather({
+  //   params: {
+  //     lat: 37.5665,
+  //     lon: 126.978,
+  //   },
+  // });
 })();
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
