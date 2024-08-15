@@ -9,6 +9,7 @@ import { PDataService } from "./api/services/PData/index.service.ts";
 const movieListService = new MovieListService();
 const weatherService = new WeatherService();
 const pDataService = new PDataService();
+console.log(weatherService);
 
 (async () => {
   // const data = await movieListService.getPopularMovies({
