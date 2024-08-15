@@ -1,6 +1,6 @@
 import {
-    getMovieKeyworldRequest,
-    getMovieKeyworldResponse,
+    getMovieKeywordRequest,
+    getMovieKeywordResponse,
 } from "../../@types/tmdb/movieKeyword.type";
 
 const API_KEY =
@@ -8,7 +8,7 @@ const API_KEY =
 
 export class MovieKeywordService {
     /** 영화 키워드 조회 */
-    async getMovieKeyworld(req: getMovieKeyworldRequest) {
+    async getMovieKeyword(req: getMovieKeywordRequest) {
         const { params } = req;
         const url = new URL(`https://api.themoviedb.org/3/movie/278/keywords`);
 
@@ -25,7 +25,7 @@ export class MovieKeywordService {
             },
         });
 
-        const data = (await res.json()) as getMovieKeyworldResponse;
+        const data = (await res.json()) as getMovieKeywordResponse;
 
         return data;
     }

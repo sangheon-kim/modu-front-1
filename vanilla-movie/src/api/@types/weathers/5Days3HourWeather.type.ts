@@ -51,18 +51,17 @@ export type get5Days3HourWeatherResponse = {
             temp_kf: number;
         };
         /** 날씨 */
-        weather: [
-            {
-                /** 아이디 */
-                id: number;
-                /** 메인 */
-                main: string;
-                /** 설명 */
-                description: string;
-                /** 아이콘 */
-                icon: string;
-            }
-        ];
+        weather: {
+            /** 아이디 */
+            id: number;
+            /** 메인 */
+            main: string;
+            /** 설명 */
+            description: string;
+            /** 아이콘 */
+            icon: string;
+        };
+
         /** 구름 정보 */
         clouds: {
             /** 구름 양 */

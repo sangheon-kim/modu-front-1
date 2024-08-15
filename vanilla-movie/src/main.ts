@@ -1,57 +1,45 @@
-import { MovieListService } from "./api/services/tmdb/movieList.service";
 import "./style.css";
 import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
-import { WeatherService } from "./api/services/weathers/weather.service.ts";
-import { PDataService } from "./api/services/PData/index.service.ts";
+import { ShortTermForecastService } from "./api/services/PData/shortTermForecast.service.ts";
+import { Days3HourWeatherService } from "./api/services/weathers/5Days3HourWeather.service.ts";
+import { MovieKeywordService } from "./api/services/tmdb/movieKeyword.service.ts";
 
-const movieListService = new MovieListService();
-const weatherService = new WeatherService();
-const pDataService = new PDataService();
+const shortTermForecastService = new ShortTermForecastService();
+const days3HourWeatherService = new Days3HourWeatherService();
+const movieKeywordService = new MovieKeywordService();
 
 (async () => {
-  // const data = await movieListService.getPopularMovies({
-  //   params: {
-  //     include_adult: false,
-  //     include_video: false,
-  //     language: "ko-KR",
-  //     page: 1,
-  //     sort_by: "popularity.desc",
-  //   },
-  // });
-  // const weatherData = await weatherService.getCurrentWeather({
-  //   params: {
-  //     lat: 37.5665,
-  //     lon: 126.978,
-  //   },
-  // });
-  // const buchonSubwayPassengerData = await pDataService.getBucheonSubwayPassenger({
-  //   params: {
-  //     page: 1,
-  //     perPage: 10,
-  //     returnType: "json",
-  //   },
-  // });
-  // console.log("buchonSubwayPassengerData", buchonSubwayPassengerData);
-  // console.log("buchonSubwayPassengerData", buchonSubwayPassengerData);
-  // await console.log("page", data.page);
-  // const corona = await pDataService.getCoronaMediaContentChange({
-  //   params: {
-  //     page: 1,
-  //     perPage: 10,
-  //   },
-  // });
-  // const nowPlayingTv = await movieListService.getNowPlayingTV({
-  //   params: {
-  //     include_adult: false,
-  //     language: "ko-KR",
-  //     page: 1,
-  //     sort_by: "popularity.desc",
-  //   },
-  // });
-  // console.log("nowPlayingTv", nowPlayingTv);
-  // console.log("corona", corona);
+    const shortTermForecastData =
+        await shortTermForecastService.getShortTermForecast({
+            params: {
+                pageNo: 1,
+                numOfRows: 1000,
+                base_date: 20240814,
+                base_time: 1200,
+                nx: 55,
+                ny: 127,
+            },
+        });
+
+    const get5Days3HourWeather =
+        await days3HourWeatherService.get5Days3HourWeather({
+            params: {
+                lat: 37.2883729,
+                lon: 126.9829824,
+            },
+        });
+
+    const getMovieKeyword = await movieKeywordService.getMovieKeyword({
+        params: {},
+    });
+
+    console.log("Short Term Forecast:", shortTermForecastData);
+    console.log("5 Days 3 Hours Weather:", get5Days3HourWeather);
+    console.log("Movie Keywords:", getMovieKeyword);
+
+    // await console.log("page", data.page);
 })();
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
