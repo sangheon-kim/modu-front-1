@@ -1,32 +1,51 @@
-import { MovieListService } from "./api/services/tmdb/movieList.service";
+import { TvListService } from "./api/services/tmdb/tvList.service.ts"   //TMDB service
 import "./style.css";
 import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
-import { WeatherService } from "./api/services/weathers/weather.service.ts";
+import { WeatherService } from "./api/services/weathers/weather.service.ts"; //weather service
+import { PDataService } from "./api/services/PData/index.service.ts";  //PData service
 
-const movieListService = new MovieListService();
+
+const tvListService = new TvListService();
 const weatherService = new WeatherService();
+const pDataService = new PDataService();
 
 (async () => {
-  const data = await movieListService.getPopularMovies({
+
+  const data = await tvListService.getOnTheAirTvs({
     params: {
       include_adult: false,
       include_video: false,
       language: "ko-KR",
       page: 1,
       sort_by: "popularity.desc",
+      "air_date.lte": "2024-08-15",
+      "air_date.gte": "2024-01-01"
     },
   });
+  // console.log("Moviedata", data);
 
-  const weatherData = await weatherService.getCurrentWeather({
+
+  
+ const weatherData = await weatherService.getCurrentWeather({
     params: {
-      lat: 37.5665,
-      lon: 126.978,
+      lat: 35.1993856,
+      lon: 129.1288576,
     },
   });
+  // console.log("weatherData", weatherData);
+  
+ const pData = await pDataService.getEduVideoRecommend({
+   params: {
+    pageNo: 1,
+    numOfRows: 10,
+    dataType: "json",
+    legaldongCode: "1111010300",
 
-  // await console.log("page", data.page);
+   },
+ });
+ console.log("pData", pData);
 })();
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
