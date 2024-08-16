@@ -5,6 +5,9 @@ import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
 import { WeatherService } from "./api/services/weathers/weather.service.ts";
 import { TVListService } from "./api/services/tmdb/tvList.service.ts";
+import { PeopleListService } from "./api/services/tmdb/peoplelist.service.ts";
+import { GlobalMapsService } from "./api/services/weathers/globalmaps.service.ts";
+import { SheltersService } from "./api/services/PData/shelters.service.ts";
 import { GeocodingService } from "./api/services/weathers/geocoding.service.ts";
 import { FineDustService } from "./api/services/PData/fineDust.service.ts";
 import { LectureListService } from "./api/services/PData/lectureList.service.ts";
@@ -19,16 +22,56 @@ const weatherService = new WeatherService();
 const tvListService = new TVListService();
 const pDataService = new PDataService();
 const forecastService = new WeatherService();
+const peopleListService = new PeopleListService();
+const globalMapsService = new GlobalMapsService();
+const sheltersService = new SheltersService();
 const geocodingService = new GeocodingService();
 const fineDustService = new FineDustService();
 const lectureListService = new LectureListService();
 const reviewListService = new ReviewListService();
 const seoulRestaurantService = new SeoulRestaurantService();
-const pDataService = new PDataService();
 const coronaMediaContentChangeService = new CoronaMediaContentChangeService();
 const bucheonSubwayPassengerService = new BuchonSubwayPassengerService();
 
 (async () => {
+
+  //   const data = await movieListService.getPopularMovies({
+  //     params: {
+  //       include_adult: false,
+  //       include_video: false,
+  //       language: "ko-KR",
+  //       page: 1,
+  //       sort_by: "popularity.desc",
+  //     },
+  //   });
+  //   const peopleData = await peopleListService.getPeopleList({
+  //     params: {
+  //       page:1,
+  //       start_date:"2020-01-01",
+  //     },
+  //   });
+  // // console.log(peopleData)
+  //   const weatherData = await weatherService.getCurrentWeather({
+  //     params: {
+  //       lat: 37.5665,
+  //       lon: 126.978,
+  //     },
+  //   });
+  // console.log(weatherData)
+  // const globalData = await globalMapsService.getGlobalMaps({
+  //   params: {
+  //     tm: 1723516800,
+  //   },
+  // });
+  //   const shelterData = await sheltersService.getEmergencyShelters({
+  //     params: {
+  //       pageNo: 1,
+  //       numOfRows: 20,
+  //       type:"json",
+  //     },
+  //   });
+  // console.log(shelterData)
+  // await console.log("page", data.page);
   // const corona =
   //   await coronaMediaContentChangeService.getCoronaMediaContentChange({
   //     params: {
