@@ -12,6 +12,9 @@ import { FineDustService } from "./api/services/PData/fineDust.service.ts";
 import { LectureListService } from "./api/services/PData/lectureList.service.ts";
 import { ReviewListService } from "./api/services/tmdb/reviewList.service.ts";
 import { PDataService } from "./api/services/PData/index.service.ts";
+import { BuchonSubwayPassengerService } from "./api/services/PData/bucheonSubwayPassenger.service.ts";
+import { CoronaMediaContentChangeService } from "./api/services/PData/coronaMediaContentChange.service.ts";
+
 const movieListService = new MovieListService();
 const weatherService = new WeatherService();
 const peopleListService = new PeopleListService();
@@ -22,8 +25,11 @@ const fineDustService = new FineDustService();
 const lectureListService = new LectureListService();
 const reviewListService = new ReviewListService();
 const pDataService = new PDataService();
+const coronaMediaContentChangeService = new CoronaMediaContentChangeService();
+const bucheonSubwayPassengerService = new BuchonSubwayPassengerService();
 
 (async () => {
+
   //   const data = await movieListService.getPopularMovies({
   //     params: {
   //       include_adult: false,
@@ -61,6 +67,14 @@ const pDataService = new PDataService();
   //   });
   // console.log(shelterData)
   // await console.log("page", data.page);
+  // const corona =
+  //   await coronaMediaContentChangeService.getCoronaMediaContentChange({
+  //     params: {
+  //       page: 1,
+  //       perPage: 10,
+  //     },
+  //   });
+  // console.log(corona);
   // const data = await movieListService.getPopularMovies({
   //   params: {
   //     include_adult: false,
@@ -76,15 +90,14 @@ const pDataService = new PDataService();
   //     lon: 126.978,
   //   },
   // });
-  // const buchonSubwayPassengerData = await pDataService.getBucheonSubwayPassenger({
+  // const buchonSubwayPassengerData = await bucheonSubwayPassengerService.getBucheonSubwayPassenger({
   //   params: {
   //     page: 1,
   //     perPage: 10,
   //     returnType: "json",
   //   },
   // });
-  // console.log("buchonSubwayPassengerData", buchonSubwayPassengerData);
-  // console.log("buchonSubwayPassengerData", buchonSubwayPassengerData);
+  // console.log("buchonSubwayPassengerData", buchonSubwayPassengerData);\
   // await console.log("page", data.page);
   // const corona = await pDataService.getCoronaMediaContentChange({
   //   params: {
