@@ -4,6 +4,7 @@ import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
 import { WeatherService } from "./api/services/weathers/weather.service.ts";
+import { TVListService } from "./api/services/tmdb/tvList.service.ts";
 import { PeopleListService } from "./api/services/tmdb/peoplelist.service.ts";
 import { GlobalMapsService } from "./api/services/weathers/globalmaps.service.ts";
 import { SheltersService } from "./api/services/PData/shelters.service.ts";
@@ -12,11 +13,15 @@ import { FineDustService } from "./api/services/PData/fineDust.service.ts";
 import { LectureListService } from "./api/services/PData/lectureList.service.ts";
 import { ReviewListService } from "./api/services/tmdb/reviewList.service.ts";
 import { PDataService } from "./api/services/PData/index.service.ts";
+import { SeoulRestaurantService } from "./api/services/PData/seoulRestaurant.service.ts";
 import { BuchonSubwayPassengerService } from "./api/services/PData/bucheonSubwayPassenger.service.ts";
 import { CoronaMediaContentChangeService } from "./api/services/PData/coronaMediaContentChange.service.ts";
 
 const movieListService = new MovieListService();
 const weatherService = new WeatherService();
+const tvListService = new TVListService();
+const pDataService = new PDataService();
+const forecastService = new WeatherService();
 const peopleListService = new PeopleListService();
 const globalMapsService = new GlobalMapsService();
 const sheltersService = new SheltersService();
@@ -24,7 +29,7 @@ const geocodingService = new GeocodingService();
 const fineDustService = new FineDustService();
 const lectureListService = new LectureListService();
 const reviewListService = new ReviewListService();
-const pDataService = new PDataService();
+const seoulRestaurantService = new SeoulRestaurantService();
 const coronaMediaContentChangeService = new CoronaMediaContentChangeService();
 const bucheonSubwayPassengerService = new BuchonSubwayPassengerService();
 
@@ -164,6 +169,30 @@ const bucheonSubwayPassengerService = new BuchonSubwayPassengerService();
   //     lon: 126.978,
   //   },
   // });
+  /** 서울 서초구 음식점 */
+  //   const restaurantData = await seoulRestaurantService.getSeoulRestaurant({
+  //     params: {
+  //       page: 1,
+  //       perPage: 10,
+  //     },
+  //   });
+  //   /**변경 tv 리스트 목록 */
+  //   const TVdata = await tvListService.getChangeTV({
+  //     params: {
+  //       page: 1,
+  //     },
+  //   });
+  // /*일상 예측 16일*/
+  //   const dailyForecastData=await forecastService.getForeCast16({
+  //     params:{
+  //       lat:37.6634779,
+  //       lon:127.2495274,
+  //       cnt:3
+  //     }
+  //   })
+  //   console.log('restaurantData: ', restaurantData)
+  //   console.log('tvData',TVdata)
+  //   console.log('forecastData',dailyForecastData);
 })();
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
