@@ -28,7 +28,7 @@ const pDataService = new PDataService();
 const coronaMediaContentChangeService = new CoronaMediaContentChangeService();
 const bucheonSubwayPassengerService = new BuchonSubwayPassengerService();
 
-(async () => {
+async () => {
   //   const data = await movieListService.getPopularMovies({
   //     params: {
   //       include_adult: false,
@@ -191,7 +191,18 @@ const bucheonSubwayPassengerService = new BuchonSubwayPassengerService();
   //    },
   //  });
   //  console.log("pData", pData);
-})();
+  // const data = await tvListService.getOnTheAirTvs({
+  //   params: {
+  //     include_adult: false,
+  //     include_video: false,
+  //     language: "ko-KR",
+  //     page: 1,
+  //     sort_by: "popularity.desc",
+  //     "air_date.lte": "2024-08-15",
+  //     "air_date.gte": "2024-01-01"
+  //   },
+};
+// console.log("Moviedata", data);
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
