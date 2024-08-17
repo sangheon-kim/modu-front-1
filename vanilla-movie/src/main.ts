@@ -30,24 +30,22 @@ const trendingMovieService = new TrendMovieListService();
     },
   });
 
-  // const disasterMsgdata = await disasterMsgService.getDisasterMsg({
-  //   params: {
-  //     service_key:
-  //       "7iOD88NPaECXSUzHx5OXvznXtISYyYyk7OL9ZsdXTzL8FIvMXxIPjrxuJXVSDcDO4EqnhLIBVd7paXt9doQ63w%3D%3D",
-  //     page_no: 5,
-  //     num_of_rows: 7,
-  //     type: "string",
-  //   },
-  // });
-  // 재난문자 데이터랑 트랜드무비 데이터랑 같이 보려면 오류나서 주석처리 해놓았습니다!
-
-  const TrendingMovieData = await trendingMovieService.getTrendingMovies({
+  const disasterMsgdata = await disasterMsgService.getDisasterMsg({
     params: {
-      language: "en-US",
+      page_no: 5,
+      num_of_rows: 7,
+      type: "string",
     },
   });
+  // 재난문자 데이터랑 트랜드무비 데이터랑 같이 보려면 오류나서 주석처리 해놓았습니다!
 
-  console.log("page", TrendingMovieData);
+  // const TrendingMovieData = await trendingMovieService.getTrendingMovies({
+  //   params: {
+  //     language: "en-US",
+  //   },
+  // });
+
+  // console.log("page", TrendingMovieData);
 
   // console.log("page", DisasterMsgdata);
 
