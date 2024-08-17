@@ -4,28 +4,48 @@ import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
 import { WeatherService } from "./api/services/weathers/weather.service.ts";
+import { NorthKoreaInfoService } from "./api/services/PData/northKoreaInfo.service.ts";
+import { MovieCompanyService } from "./api/services/tmdb/movieCompany.service.ts";
 
 const movieListService = new MovieListService();
 const weatherService = new WeatherService();
-
+const northKoreaInfoService = new NorthKoreaInfoService();
+const movieCompanyService = new MovieCompanyService();
 (async () => {
-  const data = await movieListService.getPopularMovies({
-    params: {
-      include_adult: false,
-      include_video: false,
-      language: "ko-KR",
-      page: 1,
-      sort_by: "popularity.desc",
-    },
-  });
+  // const data = await movieListService.getPopularMovies({
+  //   params: {
+  //     include_adult: false,
+  //     include_video: false,
+  //     language: "ko-KR",
+  //     page: 1,
+  //     sort_by: "popularity.desc",
+  //   },
+  // });
 
-  const weatherData = await weatherService.getCurrentWeather({
-    params: {
-      lat: 37.5665,
-      lon: 126.978,
-    },
-  });
+  // const weatherData = await weatherService.getCurrentWeather({
+  //   params: {
+  //     lat: 37.5665,
+  //     lon: 126.978,
+  //   },
+  // });
 
+  // const nkData = await northKoreaInfoService.getInfo(
+  //   {
+  //     params: {
+  //       pageNo:1,
+  //       numOfRows:10,
+  //       cl:"ARGUMENT_DAIL",
+  //       bgng_ymd:"20240101",
+  //       end_ymd:"20240813",
+  //     }
+  //   }
+  // );
+  // console.log(nkData);
+
+  // const companyData = await movieCompanyService.getMovieCompany({path: {
+  //   companyId: 2883
+  // }});
+  // console.log(companyData);
   // await console.log("page", data.page);
 })();
 
