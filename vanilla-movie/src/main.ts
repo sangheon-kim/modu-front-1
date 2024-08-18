@@ -4,6 +4,8 @@ import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
 import { WeatherService } from "./api/services/weathers/weather.service.ts";
+import { NorthKoreaInfoService } from "./api/services/PData/northKoreaInfo.service.ts";
+import { MovieCompanyService } from "./api/services/tmdb/movieCompany.service.ts";
 import { TVListService } from "./api/services/tmdb/tvList.service.ts";
 import { PeopleListService } from "./api/services/tmdb/peoplelist.service.ts";
 import { GlobalMapsService } from "./api/services/weathers/globalmaps.service.ts";
@@ -16,7 +18,6 @@ import { PDataService } from "./api/services/PData/index.service.ts";
 import { SeoulRestaurantService } from "./api/services/PData/seoulRestaurant.service.ts";
 import { BuchonSubwayPassengerService } from "./api/services/PData/bucheonSubwayPassenger.service.ts";
 import { CoronaMediaContentChangeService } from "./api/services/PData/coronaMediaContentChange.service.ts";
-import { EduVideoService } from "./api/services/PData/eduVideo.service.ts";
 
 const movieListService = new MovieListService();
 const weatherService = new WeatherService();
@@ -33,7 +34,9 @@ const reviewListService = new ReviewListService();
 const seoulRestaurantService = new SeoulRestaurantService();
 const coronaMediaContentChangeService = new CoronaMediaContentChangeService();
 const bucheonSubwayPassengerService = new BuchonSubwayPassengerService();
-const eduVideoService = new EduVideoService();
+const northKoreaInfoService = new NorthKoreaInfoService();
+const movieCompanyService = new MovieCompanyService();
+
 (async () => {
   //   const data = await movieListService.getPopularMovies({
   //     params: {
@@ -193,34 +196,37 @@ const eduVideoService = new EduVideoService();
   //   console.log('restaurantData: ', restaurantData)
   //   console.log('tvData',TVdata)
   //   console.log('forecastData',dailyForecastData);
-  // const data = await tvListService.getChangeTV({
+  // const data = await movieListService.getPopularMovies({
   //   params: {
   //     include_adult: false,
   //     include_video: false,
   //     language: "ko-KR",
   //     page: 1,
   //     sort_by: "popularity.desc",
-  //     "air_date.lte": "2024-08-15",
-  //     "air_date.gte": "2024-01-01",
   //   },
   // });
-  // // console.log("Moviedata", data);
   // const weatherData = await weatherService.getCurrentWeather({
   //   params: {
-  //     lat: 35.1993856,
-  //     lon: 129.1288576,
+  //     lat: 37.5665,
+  //     lon: 126.978,
   //   },
   // });
-  // // console.log("weatherData", weatherData);
-  // const pData = await eduVideoService.getEduVideoRecommend({
-  //   params: {
-  //     pageNo: 1,
-  //     numOfRows: 10,
-  //     dataType: "json",
-  //     legaldongCode: "1111010300",
-  //   },
-  // });
-  // console.log("pData", pData);
+  // const nkData = await northKoreaInfoService.getInfo(
+  //   {
+  //     params: {
+  //       pageNo:1,
+  //       numOfRows:10,
+  //       cl:"ARGUMENT_DAIL",
+  //       bgng_ymd:"20240101",
+  //       end_ymd:"20240813",
+  //     }
+  //   }
+  // );
+  // console.log(nkData);
+  // const companyData = await movieCompanyService.getMovieCompany({path: {
+  //   companyId: 2883
+  // }});
+  // console.log(companyData);
 })();
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
