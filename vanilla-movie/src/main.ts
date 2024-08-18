@@ -16,6 +16,7 @@ import { PDataService } from "./api/services/PData/index.service.ts";
 import { SeoulRestaurantService } from "./api/services/PData/seoulRestaurant.service.ts";
 import { BuchonSubwayPassengerService } from "./api/services/PData/bucheonSubwayPassenger.service.ts";
 import { CoronaMediaContentChangeService } from "./api/services/PData/coronaMediaContentChange.service.ts";
+import { EduVideoService } from "./api/services/PData/eduVideo.service.ts";
 
 const movieListService = new MovieListService();
 const weatherService = new WeatherService();
@@ -32,9 +33,8 @@ const reviewListService = new ReviewListService();
 const seoulRestaurantService = new SeoulRestaurantService();
 const coronaMediaContentChangeService = new CoronaMediaContentChangeService();
 const bucheonSubwayPassengerService = new BuchonSubwayPassengerService();
-
+const eduVideoService = new EduVideoService();
 (async () => {
-
   //   const data = await movieListService.getPopularMovies({
   //     params: {
   //       include_adult: false,
@@ -193,6 +193,34 @@ const bucheonSubwayPassengerService = new BuchonSubwayPassengerService();
   //   console.log('restaurantData: ', restaurantData)
   //   console.log('tvData',TVdata)
   //   console.log('forecastData',dailyForecastData);
+  // const data = await tvListService.getChangeTV({
+  //   params: {
+  //     include_adult: false,
+  //     include_video: false,
+  //     language: "ko-KR",
+  //     page: 1,
+  //     sort_by: "popularity.desc",
+  //     "air_date.lte": "2024-08-15",
+  //     "air_date.gte": "2024-01-01",
+  //   },
+  // });
+  // // console.log("Moviedata", data);
+  // const weatherData = await weatherService.getCurrentWeather({
+  //   params: {
+  //     lat: 35.1993856,
+  //     lon: 129.1288576,
+  //   },
+  // });
+  // // console.log("weatherData", weatherData);
+  // const pData = await eduVideoService.getEduVideoRecommend({
+  //   params: {
+  //     pageNo: 1,
+  //     numOfRows: 10,
+  //     dataType: "json",
+  //     legaldongCode: "1111010300",
+  //   },
+  // });
+  // console.log("pData", pData);
 })();
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
