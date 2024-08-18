@@ -1,17 +1,13 @@
-
 export type getCurrentWeatherRequestParams = {
   /** 위도 */
   lat: number;
-  /** 경도 */  
+  /** 경도 */
   lon: number;
-  // /** API Key */
-  // appid: string;
-}
+};
 
 export type getCurrentWeatherRequestPath = {};
+
 export type getCurrentWeatherRequestBody = {};
-
-
 
 /** 현재 날씨 조회 요청 */
 export type getCurrentWeatherRequest = {
@@ -19,8 +15,6 @@ export type getCurrentWeatherRequest = {
   path?: getCurrentWeatherRequestPath;
   body?: getCurrentWeatherRequestBody;
 };
-
-
 
 /** 현재 날씨 조회 응답 */
 export type getCurrentWeatherResponse = {
