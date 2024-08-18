@@ -1,4 +1,4 @@
-export type getEduVideoRecommendParams = {
+export type getEduVideoRecommendRequestParams = {
   // /** 서비스 키 */
   // serviceKey: string;
   /** 페이지 번호 */
@@ -11,18 +11,18 @@ export type getEduVideoRecommendParams = {
   legaldongCode: string;
 
 };
+// 요청 파라미터명 변경
 
-
-export type getEduVideoRecommendPath = {};
-export type getEduVideoRecommendBody = {};
+export type getEduVideoRecommendRequestPath = {};
+export type getEduVideoRecommendRequestBody = {};
 
 
 
 /** 이륜차 교육영상 추천 조회 요청 */
 export type getEduVideoRecommendRequest = {
-  params: getEduVideoRecommendParams;
-  path?: getEduVideoRecommendPath;
-  body?: getEduVideoRecommendBody;
+  params: getEduVideoRecommendRequestParams;
+  path?: getEduVideoRecommendRequestPath;
+  body?: getEduVideoRecommendRequestBody;
 };
 
 

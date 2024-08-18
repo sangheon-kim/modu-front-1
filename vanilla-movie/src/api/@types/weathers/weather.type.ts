@@ -42,10 +42,10 @@ export type getCurrentWeatherResponse = {
     /** 아이콘 */
     icon: string;
   }>;
-  /** 기본 정보 */
-  base: string;
-  /** 메인 정보 */
-  main: {
+   /** 기본 정보 */
+   base: string;
+   /** 메인 정보 */
+   main: {
     /** 온도 */
     temp: number;
     /** 체감 온도 */
@@ -63,10 +63,10 @@ export type getCurrentWeatherResponse = {
     /** 지면 기압 */
     grnd_level: number;
   };
-  /** 가시성 */
-  visibility: number;
-  /** 바람 정보 */
-  wind: {
+   /** 가시성 */
+   visibility: number;
+   /** 바람 정보 */
+   wind: {
     /** 풍속 */
     speed: number;
     /** 풍향 */
@@ -77,10 +77,10 @@ export type getCurrentWeatherResponse = {
     /** 구름 양 */
     all: number;
   };
-  /** 시간 정보 */
-  dt: number;
-  /** 시스템 정보 */
-  sys: {
+   /** 시간 정보 */
+   dt: number;
+   /** 시스템 정보 */
+   sys: {
     /** 타입 */
     type: number;
     /** ID */
@@ -92,12 +92,12 @@ export type getCurrentWeatherResponse = {
     /** 일몰 시간 */
     sunset: number;
   };
-  /** 타임존 */
-  timezone: number;
-  /** 도시 ID */
-  id: number;
-  /** 도시 이름 */
-  name: string;
-  /** 응답 코드 */
-  cod: number;
+   /** 타임존 */
+   timezone: number;
+   /** 도시 ID */
+   id: number;
+   /** 도시 이름 */
+   name: string;
+   /** 응답 코드 */
+   cod: number;
 };

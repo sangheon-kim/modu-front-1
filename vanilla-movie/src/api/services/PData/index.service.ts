@@ -4,7 +4,7 @@ import { getEduVideoRecommendRequest, getEduVideoRecommendResponse }
 from "../../@types/PData/PData.type";
 
 
-export const SERVICE_KEY = "rJYMbQZvYfoNhc3t/Ejn50sPwhJ1IHgvcueMkCLlGqVCvdvUyizCzSvlFfDHRmgdyq4LGmyLQs75O4ZCfo+LBg==";
+export const SERVICE_KEY = "rJYMbQZvYfoNhc3t/Ejn50sPwhJ1IHgvcueMkCLlGqVCvdvUyizCzSvlFfDHRmgdyq4LGmyLQs75O4ZCfo+LBg";
 
 
 
