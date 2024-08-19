@@ -2,6 +2,10 @@ import "./style.css";
 // import typescriptLogo from "../src/";
 // import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
+
+import { RecommendMoiveService } from "./api/services/tmdb/reommendMovie.service.ts";
+import { ShortWeatherForecast } from "./api/services/PData/shortWeatherForecast.service.ts";
+
 import { ShortTermForecastService } from "./api/services/PData/shortTermForecast.service.ts";
 import { Days3HourWeatherService } from "./api/services/weathers/5Days3HourWeather.service.ts";
 import { MovieKeywordService } from "./api/services/tmdb/movieKeyword.service.ts";
@@ -46,8 +50,33 @@ const coronaMediaContentChangeService = new CoronaMediaContentChangeService();
 const bucheonSubwayPassengerService = new BuchonSubwayPassengerService();
 const northKoreaInfoService = new NorthKoreaInfoService();
 const movieCompanyService = new MovieCompanyService();
+// const beachService = new BeachService();
+const recommedMovieService = new RecommendMoiveService();
+const shortWeatherForecast = new ShortWeatherForecast();
 
 (async () => {
+  // const recommendMovieData = await recommedMovieService.getRecommnedMovie({
+  //   params:{
+  //     launguage:'ko-KR',
+  //     page:1
+  //   },
+  //   path:{
+  //     movie_id:3
+  //   }
+  // });
+  // console.log(recommendMovieData);
+  // const shortWeatherData = await shortWeatherForecast.getShortWeatherForecast({
+  //   params:{
+  //     pageNo:1,
+  //     numOfRows:10,
+  //     dataType:'JSON',
+  //     base_date:20240818,
+  //     base_time:1800,
+  //     nx:55,
+  //     ny:127,
+  //   }
+  // });
+  // console.log(shortWeatherData);
   // const data = await movieListService.getPopularMovies({
   //   params: {
   //     include_adult: false,
