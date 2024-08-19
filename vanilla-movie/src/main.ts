@@ -1,6 +1,6 @@
 import "./style.css";
-import typescriptLogo from "./typescript.svg";
-import viteLogo from "/vite.svg";
+// import typescriptLogo from "../src/";
+// import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
 
 import { RecommendMoiveService } from "./api/services/tmdb/reommendMovie.service.ts";
@@ -22,6 +22,8 @@ import { FineDustService } from "./api/services/PData/fineDust.service.ts";
 import { LectureListService } from "./api/services/PData/lectureList.service.ts";
 import { MovieListService } from "./api/services/tmdb/movieList.service.ts";
 import { ReviewListService } from "./api/services/tmdb/reviewList.service.ts";
+import { DisasterMsgservice } from "./api/services/PData/disasterMsg.service.ts";
+import { TrendMovieListService } from "./api/services/tmdb/trendingMovie.service.ts";
 import { SeoulRestaurantService } from "./api/services/PData/seoulRestaurant.service.ts";
 import { BuchonSubwayPassengerService } from "./api/services/PData/bucheonSubwayPassenger.service.ts";
 import { CoronaMediaContentChangeService } from "./api/services/PData/coronaMediaContentChange.service.ts";
@@ -31,6 +33,8 @@ const days3HourWeatherService = new Days3HourWeatherService();
 const movieKeywordService = new MovieKeywordService();
 const movieListService = new MovieListService();
 const weatherService = new WeatherService();
+const disasterMsgService = new DisasterMsgservice();
+const trendingMovieService = new TrendMovieListService();
 const tvListService = new TVListService();
 const pDataService = new PDataService();
 const forecastService = new WeatherService();
@@ -73,6 +77,36 @@ const shortWeatherForecast = new ShortWeatherForecast();
   //   }
   // });
   // console.log(shortWeatherData);
+  // const data = await movieListService.getPopularMovies({
+  //   params: {
+  //     include_adult: false,
+  //     include_video: false,
+  //     language: "ko-KR",
+  //     page: 1,
+  //     sort_by: "popularity.desc",
+  //   },
+  // });
+  // const weatherData = await weatherService.getCurrentWeather({
+  //   params: {
+  //     lat: 37.5665,
+  //     lon: 126.978,
+  //   },
+  // });
+  // const disasterMsgdata = await disasterMsgService.getDisasterMsg({
+  //   params: {
+  //     page_no: 5,
+  //     num_of_rows: 7,
+  //     type: "string",
+  //   },
+  // });
+  // 재난문자 데이터랑 트랜드무비 데이터랑 같이 보려면 오류나서 주석처리 해놓았습니다!
+  // const TrendingMovieData = await trendingMovieService.getTrendingMovies({
+  //   params: {
+  //     language: "en-US",
+  //   },
+  // });
+  // console.log("page", TrendingMovieData);
+  // console.log("page", DisasterMsgdata);
   //   const data = await movieListService.getPopularMovies({
   //     params: {
   //       include_adult: false,
@@ -290,12 +324,7 @@ const shortWeatherForecast = new ShortWeatherForecast();
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
+
     <h1>Vite + TypeScript</h1>
     <div class="card">
       <button id="counter" type="button"></button>
